@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" version="3">
+  <includeClasses>
+    <classEntry path="org.wmfc.utils.amf.types.IDateTime"/>
+    <classEntry path="org.wmfc.utils.amf.types.DateTimeDTO"/>
+    <classEntry path="org.wmfc.utils.DateUtils"/>
+    <classEntry path="org.wmfc.utils.beans.IBeanRegistrator"/>
+    <classEntry path="org.wmfc.utils.StringUtils"/>
+    <classEntry path="org.wmfc.utils.xml.XMLUtils"/>
+    <classEntry path="org.wmfc.utils.crypto.secret.aes.AESHelper"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
