@@ -50,9 +50,7 @@ package org.wmfc.utils.crypto.secret.aes
 			retEnc = Hex.fromArray(data);
 			
 			var ivmode:IVMode = mode as IVMode;
-			var retVec:String = "";
-			
-			retVec = Hex.fromArray(ivmode.IV);
+			var retVec:String = Hex.fromArray(ivmode.IV);
 			
 			retorno.push(retEnc);
 			retorno.push(key);
