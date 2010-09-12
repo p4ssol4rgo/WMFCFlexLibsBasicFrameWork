@@ -8,6 +8,11 @@
     <classEntry path="org.wmfc.utils.StringUtils"/>
     <classEntry path="org.wmfc.utils.xml.XMLUtils"/>
     <classEntry path="org.wmfc.utils.crypto.secret.aes.AESHelper"/>
+    <classEntry path="org.wmfc.utils.NumberUtils"/>
+    <classEntry path="org.wmfc.utils.formatters.NumericFormatter"/>
+    <classEntry path="org.wmfc.utils.Resource"/>
+    <classEntry path="org.wmfc.utils.amf.types.DateTimeDBDTO"/>
+    <classEntry path="org.wmfc.utils.amf.types.DateTimeBase"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

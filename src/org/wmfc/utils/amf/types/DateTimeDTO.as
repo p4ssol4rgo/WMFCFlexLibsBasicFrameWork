@@ -21,6 +21,10 @@ package org.wmfc.utils.amf.types
 			_date = value;
 		}
 		
+		public function DateTimeDTO(date:Date=null){
+			_date = date;
+		}
+		
 		public function writeExternal(output:IDataOutput):void
 		{
 			if(_date == null) {
