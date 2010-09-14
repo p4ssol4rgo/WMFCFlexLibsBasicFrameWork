@@ -1,5 +1,7 @@
 package org.wmfc.utils
 {
+	import flash.sampler.startSampling;
+
 	public class Resource
 	{
 		//Default resource ids
@@ -14,8 +16,14 @@ package org.wmfc.utils
 		public static const MESSAGEBOX_QUESTION_TITLE:String = "messageBoxQuestionTitle";
 		
 		//Input´s
-		public static const INPUT_REQUIRED_FIELD:String = "inputRequiredField";
+		/*default*/
+		public static const INPUT_REQUIRED_FIELD_ERROR:String = "inputRequiredFieldError";
 		public static const INPUT_INVALID_EMAIL_FORMAT:String = "inputInvalidEmailFormat";
+		/*numericTextBox*/
+		public static const INPUT_ALLOW_NULLS_ERROR:String = "inputAllowNullsError";
+		public static const INPUT_ALLOW_NEGATIVE_VALUES_ERROR:String = "inputAllowNegativeValuesError";
+		public static const INPUT_MIN_VALUE_ERROR:String = "inputMinValueError";
+		public static const INPUT_MAX_VALUE_ERROR:String = "inputMaxValueError";
 		
 		//PaginationBar
 		public static const PAGINATIONBAR_GOTO_TOOLTIP:String = "paginationBarGoToToolTip";
@@ -25,39 +33,57 @@ package org.wmfc.utils
 		public static const PAGINATIONBAR_NEXT_BUTTON_TOOLTIP:String = "paginationBarNextButtonToolTip";
 		public static const PAGINATIONBAR_LAST_BUTTON_TOOLTIP:String = "paginationBarLastButtonToolTip";
 		
-		private static var resTable:Object = new Object();
+		private static var resTable:Object;
 		
-		public function Resource() {
-			
-			//Defaul resources
-			
-			//MessageBox
-			resTable[MESSAGEBOX_YES_LABEL] = "Yes";
-			resTable[MESSAGEBOX_NO_LABEL] = "No";
-			resTable[MESSAGEBOX_CANCEL_LABEL] = "Cancel";
-			resTable[MESSAGEBOX_OK_LABEL] = "OK";
-			resTable[MESSAGEBOX_ALERT_TITLE] = "Atention!";
-			resTable[MESSAGEBOX_ERROR_TITLE] = "Error!";
-			resTable[MESSAGEBOX_QUESTION_TITLE] = "Question";
-			
-			//Input´s default resource
-			resTable[INPUT_REQUIRED_FIELD] = "This field can´t be empty!";
-			resTable[INPUT_INVALID_EMAIL_FORMAT] = "Invalid email format!";
-			
-			//PaginationBar
-			resTable[PAGINATIONBAR_GOTO_TOOLTIP] = "Go to page";
-			resTable[PAGINATIONBAR_PAGEOFPAGE_LABEL] = "of";
-			resTable[PAGINATIONBAR_FIRST_BUTTON_TOOLTIP] = "First page";
-			resTable[PAGINATIONBAR_PREV_BUTTON_TOOLTIP] = "Previous page";
-			resTable[PAGINATIONBAR_NEXT_BUTTON_TOOLTIP] = "Next page";
-			resTable[PAGINATIONBAR_LAST_BUTTON_TOOLTIP] = "Last page";
+		private static function setDefaultResValues(res:Object=null):void {
+			if(res == null){
+				//Defaul resources
+				resTable = new Object();
+				
+				//MessageBox
+				resTable[MESSAGEBOX_YES_LABEL] = "Yes";
+				resTable[MESSAGEBOX_NO_LABEL] = "No";
+				resTable[MESSAGEBOX_CANCEL_LABEL] = "Cancel";
+				resTable[MESSAGEBOX_OK_LABEL] = "OK";
+				resTable[MESSAGEBOX_ALERT_TITLE] = "Atention!";
+				resTable[MESSAGEBOX_ERROR_TITLE] = "Error!";
+				resTable[MESSAGEBOX_QUESTION_TITLE] = "Question";
+				
+				//Input´s default resource
+				/*default*/
+				resTable[INPUT_REQUIRED_FIELD_ERROR] = "This field can´t be empty!";
+				resTable[INPUT_INVALID_EMAIL_FORMAT] = "Invalid email format!";
+				/*numericTextBox*/
+				resTable[INPUT_ALLOW_NULLS_ERROR] = "This field must have a value!";
+				resTable[INPUT_ALLOW_NEGATIVE_VALUES_ERROR] = "The value can´t be negative!";
+				resTable[INPUT_MIN_VALUE_ERROR] = "The min value for this field is {0}!";
+				resTable[INPUT_MAX_VALUE_ERROR] = "Max max value for this field is {0}!";
+				
+				//PaginationBar
+				resTable[PAGINATIONBAR_GOTO_TOOLTIP] = "Go to page";
+				resTable[PAGINATIONBAR_PAGEOFPAGE_LABEL] = "of";
+				resTable[PAGINATIONBAR_FIRST_BUTTON_TOOLTIP] = "First page";
+				resTable[PAGINATIONBAR_PREV_BUTTON_TOOLTIP] = "Previous page";
+				resTable[PAGINATIONBAR_NEXT_BUTTON_TOOLTIP] = "Next page";
+				resTable[PAGINATIONBAR_LAST_BUTTON_TOOLTIP] = "Last page";
+			}else{
+				resTable = res;
+			}
 		}
 		
 		public static function getValue(key:String):String {
+			if(resTable == null) {
+				setDefaultResValues();
+			}
+			
 			return resTable.hasOwnProperty(key) ? resTable[key].toString() : null;
 		}
 		
 		public static function setValue(key:String, value:String):void {
+			if(resTable == null) {
+				setDefaultResValues();
+			}
+			
 			resTable[key] = value;
 		}
 	}

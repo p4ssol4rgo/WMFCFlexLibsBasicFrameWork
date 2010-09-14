@@ -1,14 +1,14 @@
 package org.wmfc.utils.formatters
-{
+{	
 	import mx.formatters.NumberFormatter;
-	
+
 	public class NumericFormatter
 	{
 		
 		public static var defaultDecimalSeparator:String = ".";
 		public static var defaultThousandSeparator:String = ",";
 		
-		private var _decimalSeparator:String = defaultDecimalSeparator;
+		protected var _decimalSeparator:String = defaultDecimalSeparator;
 		public function get decimalSeparator():String
 		{
 			return _decimalSeparator;
@@ -19,7 +19,7 @@ package org.wmfc.utils.formatters
 			_decimalSeparator = value;
 		}
 
-		private var _thousandSeparator:String = defaultThousandSeparator;
+		protected var _thousandSeparator:String = defaultThousandSeparator;
 		public function get thousandSeparator():String
 		{
 			return _thousandSeparator;
@@ -30,7 +30,7 @@ package org.wmfc.utils.formatters
 			_thousandSeparator = value;
 		}
 		
-		private var _decimalPlaces:int = 2;
+		protected var _decimalPlaces:int = 2;
 		public function get decimalPlaces():int
 		{
 			return _decimalPlaces;
@@ -41,7 +41,7 @@ package org.wmfc.utils.formatters
 			_decimalPlaces = value;
 		}
 		
-		private var _rounding:String = "nearest";
+		protected var _rounding:String = "nearest";
 		public function get rounding():String
 		{
 			return _rounding;
@@ -70,6 +70,10 @@ package org.wmfc.utils.formatters
 			}
 			
 			return returnString;
+		}
+		
+		public static function formatDefault(value:Number):String {
+			return new NumericFormatter().format(value);
 		}
 	}
 }

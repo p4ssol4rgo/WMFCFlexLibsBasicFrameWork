@@ -13,6 +13,7 @@
     <classEntry path="org.wmfc.utils.Resource"/>
     <classEntry path="org.wmfc.utils.amf.types.DateTimeDBDTO"/>
     <classEntry path="org.wmfc.utils.amf.types.DateTimeBase"/>
+    <classEntry path="org.wmfc.utils.formatters.DateTimeFormatter"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
