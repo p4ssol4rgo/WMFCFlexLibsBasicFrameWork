@@ -20,6 +20,11 @@ package org.wmfc.utils.formatters
 		}
 		
 		public static function format(value:Date, format:String):String {
+			
+			if(value == null) {
+				return "";
+			}
+			
 			_defaultFormatter.formatString = format;
 			
 			return _defaultFormatter.format(value);

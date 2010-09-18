@@ -28,6 +28,67 @@ package org.wmfc.utils
 				dateUTC.millisecondsUTC);
 		}
 		
+		public static function stringToDate(valueString:String, inputFormat:String):Date
+		{
+			var mask:String
+			var temp:String;
+			var dateString:String = "";
+			var monthString:String = "";
+			var yearString:String = "";
+			var j:int = 0;
+			
+			var n:int = inputFormat.length;
+			for (var i:int = 0; i < n; i++,j++)
+			{
+				temp = "" + valueString.charAt(j);
+				mask = "" + inputFormat.charAt(i);
+				
+				if (mask == "M")
+				{
+					if (isNaN(Number(temp)) || temp == " ")
+						j--;
+					else
+						monthString += temp;
+				}
+				else if (mask == "D")
+				{
+					if (isNaN(Number(temp)) || temp == " ")
+						j--;
+					else
+						dateString += temp;
+				}
+				else if (mask == "Y")
+				{
+					yearString += temp;
+				}
+				else if (!isNaN(Number(temp)) && temp != " ")
+				{
+					return null;
+				}
+			}
+			
+			temp = "" + valueString.charAt(inputFormat.length - i + j);
+			if (!(temp == "") && (temp != " "))
+				return null;
+			
+			var monthNum:Number = Number(monthString);
+			var dayNum:Number = Number(dateString);
+			var yearNum:Number = Number(yearString);
+			
+			if (isNaN(yearNum) || isNaN(monthNum) || isNaN(dayNum))
+				return null;
+			
+			if (yearString.length == 2 && yearNum < 70)
+				yearNum+=2000;
+			
+			var newDate:Date = new Date(yearNum, monthNum - 1, dayNum);
+			
+			if (dayNum != newDate.getDate() || (monthNum - 1) != newDate.getMonth())
+				return null;
+			
+			return newDate;
+		}
+		
 		private static function verificarNecessidadeTratamentoData():Boolean {
 			//se nas datas abaixo temos fuso-horários diferentes
 			//deduzimos que a opção de ajustar automaticamente ao

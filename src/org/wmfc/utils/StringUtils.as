@@ -8,6 +8,10 @@ package org.wmfc.utils
 			return StringUtil.trim(text);
 		}
 		
+		public static function repeat(str:String, count:int):String {
+			return StringUtil.repeat(str, count);
+		}
+		
 		public static function replace(input:String, replace:String, replaceWith:String):String
 		{
 			//change to StringBuilder
@@ -46,6 +50,14 @@ package org.wmfc.utils
 			}
 			
 			return sb;
+		}
+		
+		public static function left(str:String, len:int):String {
+			return str.substr(0, len);
+		}
+		
+		public static function right(str:String, len:int):String {
+			return str.substr(str.length - len);
 		}
 	}
 }

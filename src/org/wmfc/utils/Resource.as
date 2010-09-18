@@ -24,6 +24,13 @@ package org.wmfc.utils
 		public static const INPUT_ALLOW_NEGATIVE_VALUES_ERROR:String = "inputAllowNegativeValuesError";
 		public static const INPUT_MIN_VALUE_ERROR:String = "inputMinValueError";
 		public static const INPUT_MAX_VALUE_ERROR:String = "inputMaxValueError";
+		/*DateBox*/
+		public static const INPUT_WRONG_DAY_ERROR:String = "inputWrongDayError";
+		public static const INPUT_WRONG_MONTH_ERROR:String = "inputWrongMonthError";
+		public static const INPUT_WRONG_YEAR_ERROR:String = "inputWrongYearError";
+		public static const INPUT_WRONG_DATE_LENGTH_ERROR:String = "inputWrongDateLengthError";
+		public static const INPUT_MAX_DATE_ERROR:String = "inputMaxDateError";
+		public static const INPUT_MIN_DATE_ERROR:String = "inputMinDateError";
 		
 		//PaginationBar
 		public static const PAGINATIONBAR_GOTO_TOOLTIP:String = "paginationBarGoToToolTip";
@@ -57,7 +64,15 @@ package org.wmfc.utils
 				resTable[INPUT_ALLOW_NULLS_ERROR] = "This field must have a value!";
 				resTable[INPUT_ALLOW_NEGATIVE_VALUES_ERROR] = "The value can´t be negative!";
 				resTable[INPUT_MIN_VALUE_ERROR] = "The min value for this field is {0}!";
-				resTable[INPUT_MAX_VALUE_ERROR] = "Max max value for this field is {0}!";
+				resTable[INPUT_MAX_VALUE_ERROR] = "The max value for this field is {0}!";
+				
+				/*DateBox*/
+				resTable[INPUT_WRONG_DAY_ERROR] = "Ivalid day!";
+				resTable[INPUT_WRONG_MONTH_ERROR] = "Invalid month!";
+				resTable[INPUT_WRONG_YEAR_ERROR] = "Invalid Year!";
+				resTable[INPUT_WRONG_DATE_LENGTH_ERROR] = "Invalida format date length!";
+				resTable[INPUT_MAX_DATE_ERROR] = "The max date value is {0}!";
+				resTable[INPUT_MIN_DATE_ERROR] = "The min date value is {0}!";
 				
 				//PaginationBar
 				resTable[PAGINATIONBAR_GOTO_TOOLTIP] = "Go to page";
