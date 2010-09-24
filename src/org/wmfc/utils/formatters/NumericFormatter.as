@@ -42,6 +42,7 @@ package org.wmfc.utils.formatters
 		}
 		
 		protected var _rounding:String = "nearest";
+		[Inspectable(category="General", enumeration="none,up,down,nearest", defaultValue="nearest")]
 		public function get rounding():String
 		{
 			return _rounding;
