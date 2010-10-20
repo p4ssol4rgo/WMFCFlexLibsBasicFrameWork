@@ -17,5 +17,22 @@ package org.wmfc.utils.xml
 		public static function getChildAttribute(xml:XMLNode, attribute:String):String {
 			return xml.attributes[attribute] == null ? "" : xml.attributes[attribute].toString();
 		}
+		
+		public static function getAttributesHash(node:XML):Object {
+			
+			if(node == null) {
+				return null;
+			}
+			
+			var hash:Object = new Object();
+			
+			for each(var item:XML in node.attributes()) {
+				var name:String = item.localName().toString();
+				
+				hash[name] = node.attribute(name)[0].toString();
+			}
+			
+			return hash;
+		} 
 	}
 }
